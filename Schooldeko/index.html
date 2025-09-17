@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Deko - Find the Best School Near You</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>School Deko</span>
+                </div>
+                <nav class="nav desktop-nav">
+                    <a href="#home" class="nav-link">Home</a>
+                    <a href="#schools" class="nav-link">Schools</a>
+                    <a href="#about" class="nav-link">About Us</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </nav>
+                <button class="btn btn--primary call-request-btn">
+                    <i class="fas fa-phone"></i>
+                    Request Call
+                </button>
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            <nav class="nav mobile-nav hidden">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#schools" class="nav-link">Schools</a>
+                <a href="#about" class="nav-link">About Us</a>
+                <a href="#contact" class="nav-link">Contact</a>
+                <div class="mobile-call-btn">
+                    <button class="btn btn--primary btn--full-width">
+                        <i class="fas fa-phone"></i>
+                        Request Call
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Home Page -->
+        <section id="home" class="page active">
+            <!-- Hero Section -->
+            <section class="hero">
+                <div class="container">
+                    <div class="hero-content">
+                        <h1 class="hero-title">FIND THE BEST SCHOOL NEAR YOU</h1>
+                        <p class="hero-subtitle">Discover from 25,000+ schools across India and make the right choice for your child's future</p>
+                        
+                        <div class="search-form">
+                            <div class="search-fields">
+                                <div class="form-group">
+                                    <select id="categorySelect" class="form-control">
+                                        <option value="">Select Category</option>
+                                        <option value="Day School">Day School</option>
+                                        <option value="Boarding School">Boarding School</option>
+                                        <option value="Play School">Play School</option>
+                                        <option value="PU College">PU College</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" id="locationSearch" class="form-control" placeholder="Location or School Name">
+                                </div>
+                            </div>
+                            <button class="btn btn--primary search-btn" onclick="performSearch()">
+                                <i class="fas fa-search"></i>
+                                Search Schools
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Categories Section -->
+            <section class="categories">
+                <div class="container">
+                    <h2 class="section-title">Browse by Category</h2>
+                    <div class="category-grid">
+                        <div class="category-card" onclick="filterByCategory('Day School')">
+                            <div class="category-icon">🏫</div>
+                            <h3>Day School</h3>
+                            <p>15,000+ Schools</p>
+                            <span class="category-desc">Regular schools where students attend classes during the day</span>
+                        </div>
+                        <div class="category-card" onclick="filterByCategory('Boarding School')">
+                            <div class="category-icon">🏠</div>
+                            <h3>Boarding School</h3>
+                            <p>800+ Schools</p>
+                            <span class="category-desc">Residential schools where students live on campus</span>
+                        </div>
+                        <div class="category-card" onclick="filterByCategory('Play School')">
+                            <div class="category-icon">🎈</div>
+                            <h3>Play School</h3>
+                            <p>8,000+ Schools</p>
+                            <span class="category-desc">Early childhood education centers for toddlers</span>
+                        </div>
+                        <div class="category-card" onclick="filterByCategory('PU College')">
+                            <div class="category-icon">🎓</div>
+                            <h3>PU College</h3>
+                            <p>1,200+ Colleges</p>
+                            <span class="category-desc">Pre-university colleges for 11th and 12th students</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Features Section -->
+            <section class="features">
+                <div class="container">
+                    <h2 class="section-title">Why Choose School Deko?</h2>
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">🌏</div>
+                            <h3>Pan India Presence</h3>
+                            <p>With a presence across most cities in India, School Deko has listed schools spread across the length and breadth of the country.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">📚</div>
+                            <h3>All Boards</h3>
+                            <p>Be it CBSE, ICSE, IB or state boards, School Deko has listed schools with their diverse approaches and curriculum.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">👥</div>
+                            <h3>Counselling Team</h3>
+                            <p>Our dedicated team of expert counsellors listen to you and suggest unbiased options that suit your requirement.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🎯</div>
+                            <h3>Complete Education Journey</h3>
+                            <p>School Deko caters to all parents seeking admission from preschool to pre-universities.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Statistics Section -->
+            <section class="statistics">
+                <div class="container">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-number">25000</div>
+                            <div class="stat-label">SCHOOLS LISTED</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">1M+</div>
+                            <div class="stat-label">SCHOOLS VIEWED</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">15M</div>
+                            <div class="stat-label">PARENTS SERVED</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- About Section -->
+            <section class="about" id="about">
+                <div class="container">
+                    <div class="about-content">
+                        <h2>About School Deko</h2>
+                        <p>School Deko is India's leading school discovery platform, helping parents find the perfect educational institution for their children. With over 25,000 schools listed across the country, we provide comprehensive information, expert guidance, and personalized recommendations to make your school selection process smooth and informed.</p>
+                        <p>Our mission is to democratize access to quality education by providing transparent, reliable information about schools across India. Whether you're looking for a day school, boarding school, play school, or pre-university college, School Deko is your trusted partner in this important journey.</p>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <!-- Schools Page -->
+        <section id="schools" class="page">
+            <div class="container">
+                <div class="schools-header">
+                    <h1>Find Your Perfect School</h1>
+                    <div class="search-filters">
+                        <select id="schoolTypeFilter" class="form-control" onchange="applyFilters()">
+                            <option value="">All Types</option>
+                            <option value="Day School">Day School</option>
+                            <option value="Boarding School">Boarding School</option>
+                            <option value="Play School">Play School</option>
+                            <option value="PU College">PU College</option>
+                        </select>
+                        <select id="boardFilter" class="form-control" onchange="applyFilters()">
+                            <option value="">All Boards</option>
+                            <option value="CBSE">CBSE</option>
+                            <option value="ICSE">ICSE</option>
+                            <option value="IB">IB</option>
+                            <option value="State">State Board</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="school-listings" id="schoolListings">
+                    <!-- School cards will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- School Detail Page -->
+        <section id="school-detail" class="page">
+            <div class="container">
+                <button class="btn btn--outline back-btn" onclick="goBack()">
+                    <i class="fas fa-arrow-left"></i>
+                    Back to Schools
+                </button>
+                <div id="schoolDetailContent">
+                    <!-- School detail content will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Contact Modal -->
+    <div id="contactModal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Request a Call Back</h3>
+                <button class="modal-close" onclick="closeModal('contactModal')">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label class="form-label">Full Name</label>
+                        <input type="text" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Phone Number</label>
+                        <input type="tel" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Email</label>
+                        <input type="email" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">City</label>
+                        <input type="text" class="form-control" required>
+                    </div>
+                    <button type="submit" class="btn btn--primary btn--full-width">
+                        Submit Request
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>School Deko</h4>
+                    <p>India's leading school discovery platform helping parents find the perfect educational institution for their children.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#schools">Schools</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p><i class="fas fa-phone"></i> +91-9999999999</p>
+                    <p><i class="fas fa-envelope"></i> info@schooldeko.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Mumbai, India</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 School Deko. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
